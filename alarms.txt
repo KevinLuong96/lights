@@ -1,0 +1,5 @@
+0.Alarm ID: 0 Time: 18:15- dow:0- repeat:1- group:Sleeping_Time
+- action:1- timer:2
+1.Alarm ID: 1 Time: 0:0- dow:0- repeat:0- device:0- action:0- timer:0
+2.Alarm ID: 2 Time: 0:0- dow:0- repeat:0- device:0- action:0- timer:0
+3.Alarm ID: 3 Time: 0:0- dow:0- repeat:0- device:0- action:0- timer:0

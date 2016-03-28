@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width= device-width, initial-scale=1.0">
+<title>Light Controller</title>
+<link rel= "stylesheet" href="css/styles.css">
+<link rel= "stylesheet" href="css/normalize.css">
+</head>
+<body>
+<p id="time"></p>
+<h1 id="title">LIGHTS</h1>
+<div id="main-content">
+  <div id="tabs">
+    <h3 class='controls'>Controls</h3>
+    <h3 class='alarms'>Alarms</h3>
+    <h3 class='functions'>Functions</h3>
+  </div> <!--Tabs-->
+  <div id="tab-content">
+    <div id="lights-display">
+    </div> <!-- Lights Display -->
+    <div class="controls tab">
+      <!-- <ul id="lights-selector"> -->
+      <!-- Dynamically add the light list objects to show status -->
+      <!--         
+        <li id= "light-1">Light 1</li>
+        <li id= "light-2">Light 2</li>
+        <li id= "light-3">Light 3</li>
+        <li id= "light-4">Light 4</li>
+        <li id= "light-5">Light 5</li>
+        <li id= "light-6">Light 6</li>
+        <li id= "light-7">Light 7</li>
+        <li id= "light-8">Light 8</li>
+      -->
+      <!-- </ul> -->
+      <ul id="groups">
+        <li>Group 1</li>
+        <li>Group 2</li>
+        <li>Group 3</li>
+      </ul>
+      <ul id="lights-selector">
+      </ul>
+      <ul id="button-bar">
+        <li class= "on" id="all-on">All ON</li>
+        <li class= "off" id="all-off">ALL OFF</li>
+      </ul>
+    </div> <!-- Controls Tab -->
+    <div class="alarms tab">
+      <div id="inputs">
+        <input class="alarm hour" placeholder="Hour">
+        <input class="alarm minute" placeholder="Minute">
+        <input class="alarm second" placeholder="Second">
+      </div>
+      <ul id="alarms-list">
+      </ul>
+    </div> <!-- Alarms Tab -->
+    <div class="functions tab">
+      <p>Penis</p>
+    </div> <!-- Functions Tab -->
+  </div> <!-- tab Content-->
+</div> <!-- Main Content -->
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+@font-face{
+  font-family: "OpenSans-Light";
+  src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face{
+  font-family: "Prime";
+  src: url("../fonts/Prime-Light.otf");
+}
+
+*{
+  box-sizing: border-box;
+  font-family:"OpenSans-Light";
+}
+
+#title{
+  font-family: "Prime";
+  width:100%;
+  text-align: center;
+  font-size:4em;
+  margin: 0;
+  padding: 0.67em;
+  background-color: black;
+  color: yellow;
+}
+
+#main-content{
+  margin-top:10px;
+}
+#tabs{
+  display:flex;
+  margin-left: 7%;
+}
+
+#tabs h3{
+  padding: 10px 5px;
+  margin:0 5px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 12px 12px 0 0 ;
+}
+
+#tab-content{
+  margin: auto;
+  width:90%;
+  border: 2px solid black;
+}
+
+.controls{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+#groups{
+  display: flex;
+  width: 100%;
+  margin: 15px auto 0 auto;
+}
+
+#groups li{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px auto;
+  text-align: center;
+  width: 30%;
+}
+
+#lights-selector{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap:wrap;
+  margin-top:10px;
+  width: 100%;
+  margin-left: auto;
+}
+
+#lights-selector li{
+  width: 22%;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  border: 1px solid black;
+  /* display: flex; */
+  position:relative;
+}
+
+#color-block{
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  right:0;
+}
+
+.on{
+  background-color: yellow;
+  color: black;
+}
+
+.off{
+  background-color:black;
+  color: yellow;
+}
+
+.shown{
+  background-color: black;
+  color:yellow;
+}
+
+
+#button-bar{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  margin: 10px 0 ;
+}
+
+#button-bar li{
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+@media(min-width: 40em){
+  #groups{
+    width: 20%;
+    flex-direction: column;
+  }
+  #groups li{
+    width: 80%;
+  }
+
+  #lights-selector{
+    width: 80%;
+  }
+}
+
+#time{
+  color:yellow;
+  position: absolute;
+  top:0;
+  right: 0;
+  margin:0;
+}
+
+#inputs{
+  display:flex;
+  flex-direction: column;
+}
+
+.alarm{
+  width: 80%;
+  margin: 5px auto;
+}
+
+input::-webkit-input-placeholder{
+  color:black;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
