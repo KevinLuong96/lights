@@ -49,13 +49,43 @@
       <div id="inputs">
         <input class="alarm hour" placeholder="Hour">
         <input class="alarm minute" placeholder="Minute">
-        <input class="alarm second" placeholder="Second">
-      </div>
+        <select class="alarm days">
+          <option value = "0">Every Day</option>
+          <option value = "1">Monday</option>
+          <option value = "2">Tuesday</option>
+          <option value = "3">Wednesday</option>
+          <option value = "4">Thursday</option>
+          <option value = "5">Friday</option>
+          <option value = "6">Saturday</option>
+          <option value = "7">Sunday</option>
+        </select>
+        <select class="alarm repeat">
+          <option value="0">One time</option>
+          <option value="1">Repeat</option>
+        </select>
+        <select class="alarm deviceType">
+          <option value="0">Device</option>
+          <option value="1">Group</option>
+        </select>
+        <input class="alarm deviceID" placeholder="Device ID">
+        <select class="alarm action">
+          <option value="0">OFF</option>
+          <option value="1">ON</option>
+          <option value="2">SWITCH</option>
+        </select>        
+        <input class="alarm timer" placeholder="Delay (minutes)">
+      </div><!-- Inputs -->
+      <button class="alarm submit">Create New Alarm</button>
       <ul id="alarms-list">
       </ul>
+
+      <div id="cancel-bar">
+        <button id="cancelAll">Cancel All Alarms</button>
+        <input id="cancelInput" placeholder="Cancel Select Alarm">
+        <button id="cancelSelect">Cancel</button>
+      </div> <!-- Cancel Bar -->
     </div> <!-- Alarms Tab -->
     <div class="functions tab">
-      <p>Penis</p>
     </div> <!-- Functions Tab -->
   </div> <!-- tab Content-->
 </div> <!-- Main Content -->

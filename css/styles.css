@@ -77,20 +77,13 @@
 }
 
 #lights-selector li{
-  width: 22%;
+  width: 40%;
   text-align: center;
   padding: 10px 0;
   margin: 10px 0;
   border: 1px solid black;
   /* display: flex; */
   position:relative;
-}
-
-#color-block{
-  width: 10%;
-  height: 100%;
-  position: absolute;
-  right:0;
 }
 
 .on{
@@ -121,26 +114,39 @@
   padding: 5px 10px;
 }
 
-@media(min-width: 40em){
-  #groups{
-    width: 20%;
-    flex-direction: column;
-  }
-  #groups li{
-    width: 80%;
-  }
-
-  #lights-selector{
-    width: 80%;
-  }
+.alarms{
+  text-align: center;
 }
 
-#time{
-  color:yellow;
-  position: absolute;
-  top:0;
-  right: 0;
-  margin:0;
+#alarms-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: left;
+}
+
+#alarms-list li{
+  display: flex;
+  flex-wrap:wrap;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px 0 ;
+}
+
+#alarms-list p{
+  margin: 5px;
+  width: 45%;
+}
+
+#alarms-list .type{
+  width: 100%;
+}
+
+input::-webkit-input-placeholder{
+  color:black;
+  text-align: center;
 }
 
 #inputs{
@@ -153,10 +159,86 @@
   margin: 5px auto;
 }
 
-input::-webkit-input-placeholder{
-  color:black;
+option{
   text-align: center;
 }
+#time{
+  color:yellow;
+  position: absolute;
+  top:0;
+  right: 0;
+  margin:0;
+}
+
+.submit{
+  background-color: white;
+  width: 40%;
+  border: 1px solid black;  
+}
+
+#cancelAll{
+  display: block;
+  width: 40%;
+  margin: 5px auto;
+
+}
+
+#cancel-bar{
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+
+@media(min-width: 40em){
+  #groups{
+    width: 20%;
+    flex-direction: column;
+  }
+  #groups li{
+    width: 80%;
+  }
+
+  #lights-selector{
+    width: 80%;
+  }
+
+  #lights-selector li{
+    width: 22%;
+  }
+
+  #alarms-list li{
+    width: 40%;
+  }
+  #inputs{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .hour,
+  .minute{
+    width: 40%;
+  }
+
+  .days,
+  .repeat,
+  .deviceType,
+  .deviceID,
+  .action,
+  .timer{
+    width: 26%;
+  }
+}
+
+@media(min-width: 60em){
+  .alarm{
+    width: 22%;
+  }
+}
+
+
+
 
 
 

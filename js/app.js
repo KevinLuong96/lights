@@ -49,7 +49,7 @@ function allLights( status ){
   // updateLights();
 
   // temporary ui update
-  $('#lights-selector li').removeClass().addClass(status);
+  $('#lights-selector li').removeClass().addClass('light ' + status);
 }
 
 function displayTime(){
@@ -115,6 +115,13 @@ function toggleTab( name ){
   $('#tabs .' + name).addClass('shown');
   $('#tab-content .' + name).show();
 
+  if(name === 'controls'){
+    updateLights();
+  }
+
+  if(name === 'alarms'){
+    displayAlarms();
+  }
 }
 
 
@@ -171,6 +178,7 @@ function importAlarms(){
   var url = 'alarms.txt';
   var id, time, dow, repeat, type, typeID, action, timer;
 
+  alarmsList = [];
   $.get(url, function(data){
     //cut the string into easier to use portions
     data = data.replace(/\r?\n|\r/g,'');
@@ -183,7 +191,6 @@ function importAlarms(){
        data[index] = data[index].split(' ');
     });
 
-    console.log(data);
     $.each(data, function(index, val) {
       //for each alarm, set the properties to the string values
       id = val[val.indexOf('ID:') + 1];
@@ -191,11 +198,11 @@ function importAlarms(){
       dow = val[5].substring(4);
       repeat = val[6].substring(7);
       if(val[7].startsWith('device:')){
-        type = 'device';
+        type = 'Device';
         typeID = val[7].substring(7);
       }
       else if(val[7].startsWith('group:')){
-        type = 'group';
+        type = 'Group';
         typeID = val[7].substring(6);
       }
       action = val[8].substring(7);
@@ -204,12 +211,87 @@ function importAlarms(){
       //create and push the alarm to the alarm list
       alarmsList.push(new Alarm(id, time, dow, repeat,
          type, typeID, action, timer));
+
     });
   });
 }
 function displayAlarms(){
+  var Days = {
+    '0': 'Every Day',
+    '1': 'Sunday',
+    '2': 'Monday',
+    '3': 'Tuesday',
+    '4': 'Wednesday',
+    '5': 'Thursday',
+    '6': 'Friday',  
+    '7': 'Saturday',
+  };
 
+  var alarmString = '';
+
+  $.each(alarmsList, function(index, val) {
+     /* iterate through array or object */
+
+     alarmString += '<li>'
+     alarmString += '<p class="time">' + val.time +'</p>';
+     alarmString += '<p class="days">' + Days[val.dow] +'</p>';
+     alarmString += '<p class="repeat">Repeat: ';
+     if(val.repeat === 1){
+      alarmString += 'ON';
+     }
+     else{
+      alarmString += 'OFF';
+     }
+     alarmString += '</p>'
+     alarmString += '<p class="type">' + val.type + ': ' + val.typeID + '</p>';
+     alarmString += '<p class="action">Action: ';
+     if(val.action === 0){
+      alarmString += 'OFF';
+     }
+     else if(val.action === 1){
+      alarmString += 'O';
+     }
+     else{
+      alarmString += 'SWITCH';
+     }
+     alarmString += '<p class="delay">Delay: ' + val.timer +'</p>'
+     alarmString += '</li>';
+  });
+  $('#alarms-list').html(alarmString);
 }
+
+function createAlarm(){
+
+  var url = '$A';
+
+  $.each($('#inputs').children(), function(index, val) {
+     /* iterate through array or object */
+     if(this !== $('.timer')){
+      url += $(this).val() + ',';
+     }
+     else{
+      url += $(this).val();
+     }
+  });
+
+  $.get(url);
+  importAlarms();
+  updateLights();
+};
+
+$('#cancelAll').click(function(event) {
+  var url = '$X';
+  $.get(url);
+});
+
+$('#cancelSelect').click(function() {
+  var url = '$C';
+  url += $('#cancelInput').val();
+  $('#cancelInput').val('');
+  $.get(url);
+
+});
+$('.submit').click(createAlarm);
 
 $('body').delegate('.light', 'click', function(event) {
   //record the number of the light that is pressed
@@ -240,6 +322,8 @@ jQuery(document).ready(function($) {
   updateLights();
   displayTime();
   setInterval(displayTime, 1000);
+  importAlarms();
+
 });
 
 
