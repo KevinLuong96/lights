@@ -34,7 +34,7 @@ function Alarm(id, time, dow, repeat, type, typeID, action, timer){
   this.typeID = typeID;
   this.action = action;
   this.timer = timer;
-};
+}
 
 function allLights( status ){
 //turn off or on all lights and update ui when button is pressed
@@ -101,7 +101,7 @@ function updateSystemTime(  ){
     url += ',';
   }
   for(var j = 1; j < 4; j++){
-    url += time[j]
+    url += time[j];
     if(j != 3){
       url += ',';
     }
@@ -128,7 +128,7 @@ function toggleTab( name ){
 $('#tabs h3').click( function(){
   toggleTab($(this).attr('class'));
 
-})
+});
 
 function updateGroups(){
   var url = 'group.txt';
@@ -232,7 +232,7 @@ function displayAlarms(){
   $.each(alarmsList, function(index, val) {
      /* iterate through array or object */
 
-     alarmString += '<li>'
+     alarmString += '<li>';
      alarmString += '<p class="time">' + val.time +'</p>';
      alarmString += '<p class="days">' + Days[val.dow] +'</p>';
      alarmString += '<p class="repeat">Repeat: ';
@@ -242,7 +242,7 @@ function displayAlarms(){
      else{
       alarmString += 'OFF';
      }
-     alarmString += '</p>'
+     alarmString += '</p>';
      alarmString += '<p class="type">' + val.type + ': ' + val.typeID + '</p>';
      alarmString += '<p class="action">Action: ';
      if(val.action === 0){
@@ -254,7 +254,7 @@ function displayAlarms(){
      else{
       alarmString += 'SWITCH';
      }
-     alarmString += '<p class="delay">Delay: ' + val.timer +'</p>'
+     alarmString += '<p class="delay">Delay: ' + val.timer +'</p>';
      alarmString += '</li>';
   });
   $('#alarms-list').html(alarmString);
@@ -271,13 +271,16 @@ function createAlarm(){
      }
      else{
       url += $(this).val();
-     }
+     } 
+     $(this).val('');
   });
+
+
 
   $.get(url);
   importAlarms();
   updateLights();
-};
+}
 
 $('#cancelAll').click(function(event) {
   var url = '$X';
@@ -302,7 +305,7 @@ $('body').delegate('.light', 'click', function(event) {
   // updateLights();
 
   //temporary function -----------------------------------------------------
-  $(this).toggleClass('on').toggleClass('off');;
+  $(this).toggleClass('on').toggleClass('off');
 
 });
 

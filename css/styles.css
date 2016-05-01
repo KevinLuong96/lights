@@ -84,16 +84,19 @@
   border: 1px solid black;
   /* display: flex; */
   position:relative;
+  transition: background-color 1s;
 }
 
 .on{
   background-color: yellow;
   color: black;
+
 }
 
 .off{
   background-color:black;
   color: yellow;
+
 }
 
 .shown{
@@ -193,6 +196,7 @@ option{
   #groups{
     width: 20%;
     flex-direction: column;
+
   }
   #groups li{
     width: 80%;
