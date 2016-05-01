@@ -10,8 +10,8 @@ Lights uses AJAX requests to send commands to the web server and read the respon
 in order to update the UI
 
 ##Built With
--HTML
--CSS
--JavaScript
--AJAX
--jQuery
+* HTML
+* CSS
+* JavaScript
+* AJAX
+* jQuery
